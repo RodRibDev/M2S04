@@ -1,7 +1,41 @@
 function assistirEpisodio(numero) {
     console.log("Assistindo ao episódio nº" + numero)
 }
+const episodios = [
+    {
+        id: 1,
+        episodio: 'T1:01',
+        tempo: '54min'
+    },
+    {
+        id: 2,
+        episodio: 'T1:02',
+        tempo: '52min'
+    },
+    {
+        id: 3,
+        episodio: 'T1:03',
+        tempo: '50min'
+    },
+]
 const diveps = document.getElementById('divepisodios')
-diveps.innerHTML += `<img onclick="assistirEpisodio(1)" class="telas" src="./image/ep2.png">
-                    <img onclick="assistirEpisodio(2)" class="telas" src="./image/ep1.png">
-                    <img onclick="assistirEpisodio(3)" class="telas" src="./image/ep1.png">`
+
+episodios.forEach(episodio => {
+    const cardEpisodio = document.createElement('div')
+    cardEpisodio.className = 'cardEpisodio'
+    cardEpisodio.innerHTML = `
+                                <span>${episodio.episodio}</span>
+                                <span>${episodio.tempo}</span>
+                                <button onclick="assistirepisodio(${episodio.id})">Assitir</button>  
+        
+                                `
+    diveps.appendChild(cardEpisodio)
+
+})
+
+function assistirepisodio(id) {
+    console.log(`Assistindo episódio ${id}`)
+
+
+}
+
